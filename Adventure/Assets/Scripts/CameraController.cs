@@ -20,6 +20,7 @@ public class CameraController : MonoBehaviour
     
     void Update()
     {
+        //Camera Lerp Move
         if (endCamPos != null)
         {
             transform.position = Vector3.Lerp(transform.position, endCamPos.position, moveSpeed * Time.deltaTime);
@@ -27,9 +28,9 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-
             transform.position = Vector3.Lerp(transform.position, target.position + offset, moveSpeed * Time.deltaTime);
 
+            //Camera won't fall when player is below the ground.
             if (transform.position.y < offset.y)
             {
                 transform.position = new Vector3(transform.position.x, offset.y, transform.position.z);
@@ -43,7 +44,7 @@ public class CameraController : MonoBehaviour
         {
             target = FindObjectOfType<PlayerController>().transform;
 
-            offset = transform.position;
+            offset = transform.position - target.position;
         }
     }
 
