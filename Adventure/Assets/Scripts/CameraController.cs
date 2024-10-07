@@ -20,6 +20,10 @@ public class CameraController : MonoBehaviour
     
     void Update()
     {
+        // Alt and Cursor
+        if (Input.GetKey(KeyCode.LeftAlt)) Cursor.lockState = CursorLockMode.None;
+        else Cursor.lockState = CursorLockMode.Locked;
+        
         //Camera Lerp Move
         if (endCamPos != null)
         {
