@@ -14,8 +14,10 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         AssignTarget();
-
+        
         Cursor.lockState = CursorLockMode.Locked;
+
+        LevelManager.instance.camSnap += SnapToTarget;
     }
     
     void Update()
