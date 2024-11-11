@@ -1,4 +1,4 @@
-using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +9,9 @@ public class UIController : MonoBehaviour
     public Image fadeScreen;
     public bool isFadingToBlack, isFadingFromBlack;
     public float fadeSpeed;
+
+    public Slider healthSlider;
+    public TMP_Text healthText;
 
     private void Awake()
     {
@@ -41,5 +44,13 @@ public class UIController : MonoBehaviour
     {
         isFadingToBlack = false;
         isFadingFromBlack = true;
+    }
+
+    public void UpdateHealthDisplay(int health)
+    {
+        healthText.text = "Health: " + health + "/" + PlayerHealthController.instance.maxHealth;
+
+        healthSlider.maxValue = PlayerHealthController.instance.maxHealth;
+        healthSlider.value = health;
     }
 }
