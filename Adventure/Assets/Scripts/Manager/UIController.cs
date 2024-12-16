@@ -11,7 +11,7 @@ public class UIController : MonoBehaviour
     public float fadeSpeed;
 
     public Slider healthSlider;
-    public TMP_Text healthText;
+    public TMP_Text healthText, coinText, crystalText;
 
     private void Awake()
     {
